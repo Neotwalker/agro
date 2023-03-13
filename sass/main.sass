@@ -1,0 +1,741 @@
+@use 'sass:math'
+@use 'sass:color'
+
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: $black
+	opacity: 1
+
+*:-moz-placeholder
+	color: $black
+	opacity: 1
+
+*::-moz-placeholder
+	color: $black
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: $black
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: $black
+body input:required:valid,
+body textarea:required:valid
+	color: $black
+
+html, body
+	height: 100%
+
+body
+	font-size: 14px
+	min-width: 320px
+	position: relative
+	line-height: 1.25
+	font-family: $default-font
+	overflow-x: hidden
+	display: flex
+	flex-direction: column
+
+.logo
+	img
+		width: 220px
+		height: auto
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+
+img
+	max-width: 100%
+	height: auto
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+::selection
+	background-color: $accent
+	color: $white
+
+main
+	flex: 1 0 auto
+
+ul, li
+	list-style-type: none
+	a
+		color: $black
+
+a
+	transition: all .3s ease
+	&:hover, &:focus
+		color: $black
+		text-decoration: none
+		opacity: 0.8
+	&.button
+		color: $white
+		&:hover, &:focus
+			color: $white
+
+.h1, .h2, .h3, .h4, .h5, .h6
+	padding: 0
+	margin: 0
+
+.h1
+	font-size: 35px
+	span
+		font-size: 24px
+
+.h2
+	font-size: 24px
+
+.h3
+	font-size: 19px
+
+.h4
+	font-size: 14.5px
+
+.button
+	background-color: $accent
+	padding: 10px 24px
+	color: $white
+	outline: none
+	border: none
+	border-radius: 10px
+	&:hover, &:focus
+		opacity: 0.8
+
+.menu
+	.list
+		display: flex
+		gap: 20px
+
+.all
+	font-size: 18px
+	margin-left: auto
+	color: $accent
+
+.header
+	margin-bottom: 30px
+	&--top
+		padding: 12px 0
+		background-color: $black
+		color: $white
+		font-size: 13px
+		margin-bottom: 25px
+		&__wrapper
+			display: flex
+			white-space: nowrap
+			gap: 20px
+			.geobase
+				margin-right: auto
+				&--city
+					text-decoration: underline
+			.shedule
+				margin-right: 20px
+			*
+				color: $white
+			a
+				&:hover, &:focus
+					color: $white
+	&--bottom
+		font-size: 13px
+		white-space: nowrap
+		&__wrapper
+			display: flex
+			flex-direction: column
+			.top
+				display: flex
+				gap: 30px
+				align-items: center
+				margin-bottom: 30px
+				.search
+					position: relative
+					input
+						width: 479px
+						padding: 10px
+						line-height: 1
+						height: 36px
+						border: 1px solid $accent
+						border-radius: 10px
+						&:focus
+							outline: none
+					.button
+						position: absolute
+						right: 0
+						top: 0
+						line-height: 1
+						height: 36px
+				.social
+					display: flex
+					gap: 40px
+					.link
+						display: flex
+						flex-direction: column
+						a
+							font-weight: 500
+						span
+							font-weight: 300
+				.cart
+					align-self: flex-end
+					font-weight: 300
+			.bottom
+				height: 36px
+				.menu
+					display: flex
+					align-items: center
+					gap: 10px
+					&--bottom
+						.list
+							&--catalog
+								a
+									color: $white
+									background-color: $accent
+									padding: 10px 10px 10px 40px
+									border-radius: 10px
+						&__wrapper
+							height: 36px
+							display: flex
+							align-items: center
+							width: 100%
+							border: 1px solid $accent
+							border-radius: 10px
+							padding-left: 20px
+							.list
+								a
+									color: $black
+									&:hover, &:focus
+										color: $accent
+							.button
+								padding: 10px 16px
+								margin-left: auto
+								border-radius: 8px
+								height: 36px
+
+.main
+	margin-bottom: 60px
+	&--banner
+		margin-bottom: 22px
+		&__wrapper
+			display: flex
+			gap: 15px
+			color: $white
+			.left, .right
+				min-height: 293px
+				background: $gradient
+				border-radius: 10px
+			.left
+				display: flex
+				justify-content: space-between
+				gap: 20px
+				padding: 40px 10px 25px 40px
+				max-width: 80%
+				width: 100%
+				overflow: hidden
+				&--info
+					.h1
+						max-width: 305px
+						line-height: 42px
+						margin-bottom: 40px
+						span
+							display: block
+							line-height: 1
+					.list
+						display: flex
+						gap: 10px
+						margin-bottom: 25px
+						span
+							max-width: 140px
+							width: fit-content
+							text-align: center
+							&:first-child
+								text-align: left
+					.cost
+						background: linear-gradient(69.23deg, #F43C3C 13.4%, #FE7C7C 100.09%)
+						border-radius: 0px 10px 10px 0
+						padding: 15px 40px
+						transform: translate(-40px, 0)
+						font-size: 23px
+						font-weight: 700
+			.right
+				max-width: 20%
+				width: 100%
+				display: flex
+				justify-content: center
+				align-items: center
+				.image
+					width: 162px
+	&--catalog
+		&__title
+			display: flex
+			align-items: center
+			gap: 15px
+			margin-bottom: 17px
+			.catalog
+				.list
+					height: 36px
+					border: 1px solid $accent
+					border-radius: 10px
+					align-items: center
+					padding: 10px 20px
+					a
+						&:hover, &:focus
+							color: $accent
+		&__list
+			display: flex
+			gap: 25px
+			margin-bottom: 45px
+			.item
+				border-radius: 10px
+				min-height: 355px
+				display: flex
+				flex-direction: column
+				flex: 1 1 calc(25% - 25px)
+				max-width: 25%
+				height: 380px
+				padding: 11px 30px
+				transition: box-shadow .3s ease
+				&:hover, &:focus
+					opacity: 1
+					box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.15)
+					.cart
+						opacity: 1
+					.info
+						gap: 4px
+				.image
+					display: flex
+					align-items: center
+					justify-content: center
+					margin-bottom: 18px
+					img
+						max-width: 111px
+				.info
+					margin-bottom: 18px
+					color: $black
+					display: flex
+					flex-direction: column
+					gap: 12px
+					transition: gap .3s ease
+					.cost
+						font-size: 14px
+						font-weight: 700
+					.h4
+						max-width: 169px
+						font-weight: 500
+					.article, .order
+						color: $gray
+				.cart
+					opacity: 0
+					transition: opacity .3s ease
+					display: flex
+					align-items: center
+					justify-content: space-between
+					margin-top: auto
+					span
+						display: inline-block
+				&.pumps
+					padding: 24px
+					background: $gradient
+					color: $white
+					justify-content: space-between
+					.image
+						max-width: 250px
+						height: 80%
+						margin-bottom: 0
+						img
+							max-width: 100%
+					.title
+						display: flex
+						align-items: flex-end
+						justify-content: space-between
+						height: 20%
+						.h3
+							line-height: 1
+		&__general
+			display: flex
+			gap: 35px
+			.item
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				flex: 1 1 calc(25% - 35px)
+				max-width: 25%
+				padding: 25px
+				background: linear-gradient(69.23deg, #3CF49C 13.4%, #7CFEB8 100.09%)
+				border-radius: 10px
+				transition: box-shadow .3s ease
+				&:hover, &:focus
+					opacity: 1
+					box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.15)
+				.image
+					max-height: 144px
+					display: flex
+					align-items: center
+					justify-content: center
+					img
+						max-height: 200px
+				.h2
+					font-size: 16px
+					font-weight: 600
+					color: $white
+					max-width: 180px
+				&:nth-child(2)
+					background: linear-gradient(69.23deg, #B93CF4 13.4%, #C57CFE 100.09%)
+					.image
+						max-height: 186px
+						img
+							max-height: 186px
+				&:nth-child(3)
+					background: linear-gradient(69.23deg, #8DF43C 13.4%, #C5FE7C 100.09%)
+					.image
+						max-height: 176px
+						img
+							max-height: 176px
+				&:last-child
+					background: linear-gradient(69.23deg, #F47E3C 13.4%, #FE9B7C 100.09%)
+					.image
+						max-height: 176px
+						img
+							max-height: 176px
+		&.general
+			margin-bottom: 85px
+	&--stock
+		margin-bottom: 25px
+		.title
+			display: flex
+			align-items: center
+			margin-bottom: 27px
+		&__wrapper
+			display: flex
+			gap: 15px
+			.item
+				flex: 1 1 calc(25% - 15px)
+				max-width: 25%
+				background: $gradient
+				padding: 46px 52px
+				border-radius: 10px
+				.image
+					transition: transform .3s ease
+					transform: scale(1)
+				&:hover
+					.image
+						transform: scale(1.1)
+	&--advantages
+		margin-bottom: 80px
+		.title
+			margin-bottom: 27px
+		&__wrapper
+			display: flex
+			gap: 15px
+			.item
+				flex: 1 1 calc(25% - 15px)
+				max-width: 25%
+				border-radius: 10px
+				border: 1px solid $gray
+				min-height: 203px
+				padding: 32px 31px
+				display: flex
+				align-items: flex-end
+				.h3
+					text-align: center
+					font-weight: 600
+	&--certificates
+		margin-bottom: 98px
+		&__wrapper
+			display: flex
+			gap: 15px
+			.item
+				flex: 1 1 calc(25% - 15px)
+				max-width: 25%
+				.info
+					margin-top: 13px
+					font-size: 19px
+	&--news
+		margin-bottom: 60px
+		&__wrapper
+			display: flex
+			gap: 15px
+			.item
+				flex: 1 1 calc(25% - 5px)
+				.date
+					font-size: 19px
+
+.page
+	&--catalog
+		margin-bottom: 90px
+		.bradcrumbs
+			display: flex
+			gap: 2px
+			margin-bottom: 40px
+			a
+				color: $gray
+		&__title
+			display: flex
+			flex-direction: column
+			gap: 5px
+			margin-bottom: 20px
+			span
+				font-size: 15px
+				color: $gray
+		&__list
+			display: grid
+			grid-template-columns: repeat(5, 1fr)
+			flex-wrap: wrap
+			gap: 20px 11px
+			.item
+				width: 100%
+				.image
+					background: $gradient
+					border-radius: 10px
+					height: 140px
+					display: flex
+					align-items: center
+					justify-content: center
+					margin-bottom: 7px
+					transition: box-shadow .3s ease
+					img
+						height: 115px
+						max-width: 135px
+				.info
+					font-size: 19px
+					text-align: center
+					color: $black
+					transition: color .3s ease
+				&:hover, &:focus
+					opacity: 1
+					.info
+						color: $accent
+					.image
+						box-shadow: 0 0 12px rgba(0,0,0,.15)
+
+.subcategory
+	&--wrapper
+		display: flex
+		gap: 60px
+		.filter
+			max-width: 16%
+			width: 16%
+			&--title
+				margin-bottom: 17px
+			&--parameter
+				margin-bottom: 13px
+				.title
+					font-weight: 700
+					margin-bottom: 13px
+					display: inline-block
+			&--block
+				display: flex
+				flex-direction: column
+				input
+					position: absolute
+					z-index: -1
+					opacity: 0
+					+ label
+						display: inline-flex
+						align-items: center
+						user-select: none
+						&::before
+							content: ''
+							display: inline-block
+							width: 17px
+							height: 17px
+							flex-shrink: 0
+							flex-grow: 0
+							border: 1px solid #adb5bd
+							border-radius: 3px
+							background-repeat: no-repeat
+							background-position: center center
+							background-size: 70% 70%
+					&:checked
+						+ label::before
+							border-color: $accent
+							background-color: $accent
+							background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e")
+				&__label
+					position: relative
+					margin-bottom: 7px
+					cursor: pointer
+					font-size: 13px
+					span
+						margin-left: 8px
+						display: flex
+						flex-direction: row
+						width: 100%
+						justify-content: space-between
+						&.count
+							margin-left: auto
+							color: $gray
+							width: fit-content
+				.range
+					&-container-5
+						*
+							box-sizing: border-box
+							outline: none
+						&:after
+							content: ""
+							clear: both
+							display: table
+						.wrapper
+							display: flex
+							margin-top: 20px
+							gap: 8px
+							.left, .right
+								display: flex
+								align-items: center
+								gap: 8px
+						.ui-slider 
+							position: relative
+							background: $accent
+							height: 2px
+							&-handle 
+								position: absolute
+								width: 12px
+								height: 12px
+								cursor: pointer
+								border-radius: 50%
+								border: 2px solid $accent
+								top: -6px
+								background: #FFF
+								z-index: 2
+								transition: transform 0.2s, border 0.4s
+							&-range
+								position: absolute
+								z-index: 1
+								height: 2px
+								border: 0
+								background: $accent
+						.range-input-left,
+						.range-input-right
+							opacity: 1
+							position: inherit
+							height: 32px
+							background: #FFF
+							border-radius: 3px
+							border: .5px solid $gray
+							text-align: center
+							font-size: 13px
+							padding: 4px
+							width: 65px
+						.range-input-left
+							float: left
+						.range-input-right
+							float: right
+	&__list
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		flex-wrap: wrap
+		gap: 23px
+		width: 84%
+		.item
+			border-radius: 10px
+			min-height: 355px
+			display: flex
+			flex-direction: column
+			max-width: 100%
+			height: 380px
+			padding: 11px 23px
+			transition: box-shadow .3s ease
+			&:hover, &:focus
+				opacity: 1
+				box-shadow: 0px 0px 17px rgba(0, 0, 0, 0.15)
+				.cart
+					opacity: 1
+				.info
+					gap: 4px
+			.image
+				display: flex
+				align-items: center
+				justify-content: center
+				margin-bottom: 18px
+				img
+					max-width: 111px
+			.info
+				margin-bottom: 18px
+				color: $black
+				display: flex
+				flex-direction: column
+				gap: 12px
+				transition: gap .3s ease
+				.cost
+					font-size: 14px
+					font-weight: 700
+				.h4
+					max-width: 169px
+					font-weight: 500
+				.article, .order
+					color: $gray
+			.cart
+				opacity: 0
+				transition: opacity .3s ease
+				display: flex
+				align-items: center
+				justify-content: space-between
+				margin-top: auto
+				span
+					display: inline-block
+				.button
+					padding: 7px 10px
+
+.footer
+	background-color: $footer
+	color: $white
+	padding: 52px 0 94px
+	&--wrapper
+		display: flex
+		gap: 9%
+		a
+			font-weight: 200
+			color: $white
+		.title
+			font-size: 20px
+			font-weight: 700
+			margin-bottom: 10px
+			display: inline-block
+		.item
+			flex: 1 1 calc(25% - 9%)
+			&:last-child
+				flex: 1 1 calc(35% - 9%)
+		.info
+			display: flex
+			flex-direction: column
+			a
+				font-size: 18px
+				font-weight: 700
+				margin-bottom: 4px
+			&--mini
+				font-size: 8px
+				margin-bottom: 18px
+			.button
+				font-size: 8px
+				font-weight: 400
+				padding: 5px
+				width: fit-content
+				border-radius: 5px
+		.list
+			display: flex
+			flex-direction: column
+			gap: 15px
+			a
+				font-size: 18px
+
+@import "media"
