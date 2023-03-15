@@ -11,6 +11,7 @@ $(function() {
 			$(".range-input-right").val(ui.values[ 1 ]);
 		}
 	});
+
 	$(".range-input-left").val($(".range-5").slider("values", 0));
 	$(".range-input-right").val($(".range-5").slider("values", 1));
 	$(".range-container-5 input").change(function() {
@@ -48,4 +49,94 @@ $(function() {
 		}
 	});
 
+	$('.quantity .minus').click(function() {
+		let $input = $(this).parent().find('.quantity--input');
+		let count = parseInt($input.val()) - 1;
+		count = count < 1 ? 1 : count;
+		$input.val(count);
+	});
+
+	$('.quantity .plus').click(function() {
+		let $input = $(this).parent().find('.quantity--input');
+		let count = parseInt($input.val()) + 1;
+		count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
+		$input.val(parseInt(count));
+	});
+
+	$('.quantity .quantity--input').bind("change keyup input click", function() {
+		if (this.value.match(/[^0-9]/g)) {
+				this.value = this.value.replace(/[^0-9]/g, '');
+		}
+		if (this.value == "") {
+				this.value = 1;
+		}
+		if (this.value > parseInt($(this).data('max-count'))) {
+				this.value = parseInt($(this).data('max-count'));
+		}
+	});
+
+	$(".tab-1").click(function(e) {
+		$(".tab").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.text').removeClass('active');
+		$('.tab-1').addClass('active');
+	});
+
+	$(".tab-2").click(function(e) {
+		$(".tab").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.text').removeClass('active');
+		$('.tab-2').addClass('active');
+	});
+
+	$(".tab-3").click(function(e) {
+		$(".tab").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.text').removeClass('active');
+		$('.tab-3').addClass('active');
+	});
+
+	$(".tab-4").click(function(e) {
+		$(".tab").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.text').removeClass('active');
+		$('.tab-4').addClass('active');
+	});
+
+	$(".tab-5").click(function(e) {
+		$(".cat").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.info-1').removeClass('active');
+		$('.tab-5').addClass('active');
+	});
+
+	$(".tab-6").click(function(e) {
+		$(".cat").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.info-1').removeClass('active');
+		$('.tab-6').addClass('active');
+	});
+
+	$(".tab-7").click(function(e) {
+		$(".cat").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.info-1').removeClass('active');
+		$('.tab-7').addClass('active');
+	});
+
+	$(".tab-8").click(function(e) {
+		$(".cat").removeClass('active');
+		$(this).addClass('active');
+	
+		$('.info-1').removeClass('active');
+		$('.tab-8').addClass('active');
+	});
+	
 });
