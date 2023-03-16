@@ -139,4 +139,9 @@ $(function() {
 		$('.tab-8').addClass('active');
 	});
 	
+	$('.dropdown--first').click(function(){
+		$(this).toggleClass('active');
+		$('.dropdown--years').toggleClass('active');
+	});
+
 });

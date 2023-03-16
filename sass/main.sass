@@ -602,6 +602,7 @@ form
 		&__list
 			display: grid
 			grid-template-columns: repeat(5, 1fr)
+			grid-template-rows: auto
 			flex-wrap: wrap
 			gap: 20px 11px
 			.item
@@ -755,6 +756,7 @@ form
 	&__list
 		display: grid
 		grid-template-columns: repeat(4, 1fr)
+		grid-template-rows: auto
 		flex-wrap: wrap
 		gap: 23px
 		width: 84%
@@ -1071,7 +1073,8 @@ form
 							display: block
 						.subcategory__list
 							width: 100%
-							grid-template-columns: repeat(5,1fr)
+							grid-template-columns: repeat(5, 1fr)
+							grid-template-rows: auto
 							.item
 								min-height: 360px
 								height: fit-content
@@ -1373,6 +1376,7 @@ form
 		.page--buy__sertificates
 			display: grid
 			grid-template-columns: repeat(4, 1fr)
+			grid-template-rows: auto
 			gap: 30px
 			.sertificate
 				.image
@@ -1472,6 +1476,7 @@ form
 			.wrapper
 				display: grid
 				grid-template-columns: repeat(2, 178px)
+				grid-template-rows: auto
 				gap: 13px 60px
 				.link
 					flex: 1 1 calc(20% - 60px)
@@ -1497,6 +1502,219 @@ form
 				border-radius: 5px
 				img
 					border-radius: 5px
+	&--information
+		&__wrapper
+			margin-bottom: 90px
+		.page--buy
+			&__title
+				flex-direction: column
+				align-items: flex-start
+				gap: 35px
+			&__information
+				*
+					font-size: 16px
+					line-height: 30px
+					margin-bottom: 30px
+					&:last-child
+						margin-bottom: 0
+				.h1
+					font-size: 40px
+				.h3
+					font-size: 20px
+				strong
+					display: block
+				ul
+					padding-left: 20px
+					list-style-type: disc
+					li
+						margin-bottom: 5px
+						list-style-type: disc
+						a
+							display: inline-block
+							&:hover
+								color: $accent
+						&:last-child
+							margin-bottom: 0
+	&--price
+		.page--buy__title
+			flex-wrap: wrap
+			align-items: center
+			flex-direction: initial
+		.table
+			border-spacing: 10px
+			border-collapse: separate
+			thead
+				td
+					font-weight: bold
+					padding-bottom: 10px
+			tbody
+				td
+					padding-bottom: 5px
+					&:first-child
+						padding-left: 10px
+			tr
+				td
+					vertical-align: middle
+					&:first-child,
+					&:nth-child(3),
+					&:last-child
+						width: 100px
+					&:nth-child(2)
+						width: 400px
+	&--news
+		.page--buy__title
+			flex-wrap: wrap
+			align-items: center
+			flex-direction: initial
+		.page--information__wrapper
+			margin-bottom: 0
+		.page--buy__title
+			.title
+				display: flex
+				align-items: flex-end
+				gap: 23px
+				.dropdown
+					display: flex
+					flex-direction: column
+					gap: 8px
+					position: relative
+					.overhead
+						font-size: 10px
+						color: $gray
+					&--first
+						padding: 12px 16px
+						background: #f8f8f8
+						border-radius: 5px
+						display: flex
+						gap: 30px
+						cursor: pointer
+						width: 135px
+						transform: rotate(0)
+						.icon
+							transition: transform .3s ease
+						&.active
+							.icon
+								transform: rotate(180deg)
+					&--years
+						display: flex
+						opacity: 0
+						z-index: -1
+						position: absolute
+						top: 60px
+						flex-direction: column
+						padding: 12px 16px
+						width: 135px
+						background: #f8f8f8
+						border-bottom-left-radius: 5px
+						border-bottom-right-radius: 5px
+						transition: all .3s ease
+						&.active
+							z-index: 1
+							opacity: 1
+						span
+							display: inline-block
+							padding-bottom: 10px
+							cursor: pointer
+							&:last-child
+								padding-bottom: 0
+							a
+								color: $black
+							&:hover
+								a
+									color: $accent
+		&__block
+			background: #F8F8F8
+			padding-top: 70px
+			padding-bottom: 50px
+			.wrapper
+				display: grid
+				grid-template-columns: repeat(2, 1fr)
+				grid-template-rows: auto
+				gap: 30px
+				.item
+					background: $white
+					border-radius: 10px
+					*
+						color: $black
+						transition: all .3s ease
+					.h3
+						font-size: 32px
+						font-weight: 500
+						margin-bottom: 30px
+					p
+						color: $gray
+						font-size: 16px
+						margin-bottom: 60px
+					.date
+						margin-top: auto
+						display: inline-block
+						color: $gray
+						font-size: 16px
+					.link
+						height: 100%
+						padding: 34px 39px 42px 32px
+						display: flex
+						flex-direction: column
+						border-radius: 10px
+						&:hover
+							background-color: $accent
+							opacity: 1
+							*
+								color: $white
+			&.politic
+				background: $white
+				padding-top: 0
+				&--wrapper
+					*
+						font-size: 18px
+						line-height: 22px
+					ul
+						padding-left: 15px
+						li
+							list-style-type: disc
+	&--contacts
+		.h1
+			font-size: 40px
+			margin-bottom: 10px
+		.page--buy__info
+			margin-bottom: 0
+			.wrapper
+				display: flex
+				gap: 30px
+				max-height: 440px
+				.image
+					flex: 1 1 calc(60% - 30px)
+				.info
+					flex: 1 1 calc(40% - 30px)
+					padding-right: 35px
+					overflow-x: auto
+					scrollbar-width: thin
+					scrollbar-color: $accent #D9D9D9
+					&::-webkit-scrollbar
+						width: 12px
+					&::-webkit-scrollbar-track
+						background: #D9D9D9
+						border-radius: 10px
+					&::-webkit-scrollbar-thumb
+						background-color: $accent
+						border-radius: 10px
+					.h3
+						font-size: 20px
+					.item
+						border-bottom: 1px solid $gray
+						padding-bottom: 15px
+						margin-bottom: 13px
+						display: flex
+						flex-direction: column
+						align-items: flex-start
+						gap: 13px
+						p
+							font-size: 16px
+						a
+							color: $accent
+							&:hover
+								color: $black
+
 
 .footer
 	background-color: $footer
