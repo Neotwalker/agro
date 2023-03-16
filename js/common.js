@@ -144,4 +144,46 @@ $(function() {
 		$('.dropdown--years').toggleClass('active');
 	});
 
+	
+	// let parent = document.querySelector('.block');
+	// let elem = parent.querySelector('.clone');
+	// $('.add--place').click(function(){
+	// 	let clone = elem.cloneNode(true);
+	// 	parent.appendChild(clone);
+	// });
+
+	let counter = 1;
+	$(document).on('click', '.add--place', function(){
+		var $clone = $('.clone').last().clone();
+
+		// $clone.find('[name="weight"]').attr('name', 'weight' + counter);
+    // $clone.find('[name="volume"]').attr('name', 'volume' + counter);
+
+		$clone.find('input').each(function() {
+      var name = $(this).attr('name');
+      $(this).attr('name', name + counter);
+    });
+
+		$('.clone').find('.add--place').remove();
+		
+		if (!$clone.find('.delete--place').length) {
+			$clone.append('<span class="delete--place">Удалить место</span>'); // добавляем кнопку удаления
+		}
+		$clone.appendTo('form .block');
+		if ($('.clone').length === 1) {
+			// если есть только один блок, добавляем кнопку "add-place"
+			$('<span class="add--place">Добавить место</span>').appendTo('form .block');
+		}
+		counter++;
+	});
+	
+	$(document).on('click', '.delete--place', function(){
+		$(this).parent('.clone').remove(); // удаляем блок при нажатии на кнопку удаления
+		$('.clone:not(:last)').find('.add--place').remove();
+		if ($('.clone').length === 1) {
+			// если есть только один блок, добавляем кнопку "add-place"
+			$('<span class="add--place">Добавить место</span>').appendTo('.clone:last');
+		}
+	});
+
 });
